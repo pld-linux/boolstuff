@@ -1,7 +1,7 @@
 Summary:	BoolStuff is a C++ library that supports a few operations on boolean expression binary trees
 Name:		boolstuff
 Version:	0.1.13
-Release:	0.90
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://perso.b2b2c.ca/sarrazip/dev/%{name}-%{version}.tar.gz
@@ -43,9 +43,8 @@ echo "AC_CONFIG_MACRO_DIR([macros])" >> configure.ac
 
 %build
 %{__libtoolize}
-%{__aclocal}
-%{__autoconf} -I macros
-%{__autoheader}
+%{__aclocal} -I macros
+%{__autoconf}
 %{__automake}
 %configure
 %{__make}
@@ -68,13 +67,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS TODO
-%{_libdir}/lib*.so*
+%{_libdir}/lib*.so.*
 %{_libdir}/lib*.la
 %{_mandir}/man3/boolstuff.3.gz
 %{_examplesdir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
+%{_libdir}/lib*.so
 %{_includedir}/boolstuff-0.1
 %{_pkgconfigdir}/*.pc
 
