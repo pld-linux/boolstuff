@@ -9,7 +9,8 @@ Source0:	http://perso.b2b2c.ca/sarrazip/dev/%{name}-%{version}.tar.gz
 URL:		http://perso.b2b2c.ca/sarrazip/dev/boolstuff.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	perl
+BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,9 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS TODO
-%{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.?
 %{_libdir}/lib*.la
-%{_mandir}/man3/boolstuff.3.gz
+%{_mandir}/man3/boolstuff.3*
 %{_examplesdir}/%{name}
 
 %files devel
@@ -79,5 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/*.pc
 
 %files tools
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/booldnf.1.gz
+%{_mandir}/man1/booldnf.1*
