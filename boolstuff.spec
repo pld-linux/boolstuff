@@ -1,7 +1,7 @@
 Summary:	BoolStuff is a C++ library that supports a few operations on boolean expression binary trees
 Name:		boolstuff
 Version:	0.1.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	http://perso.b2b2c.ca/sarrazip/dev/%{name}-%{version}.tar.gz
